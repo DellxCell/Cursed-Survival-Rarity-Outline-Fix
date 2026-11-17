@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cursed Survival Rarity Outline Fix</title>
+<meta name="description" content="Dropped loot in Cursed Survival shows its rarity colour again. A Black Ops 7 Zombies mod for Kronos.">
+<meta property="og:title" content="Cursed Survival Rarity Outline Fix 1.0">
+<meta property="og:description" content="Dropped loot in Cursed Survival shows its rarity colour again. A Black Ops 7 Zombies mod for Kronos.">
+<meta property="og:image" content="https://dellxcell.github.io/Cursed-Survival-Rarity-Outline-Fix/logo.svg">
+<meta property="og:url" content="https://dellxcell.github.io/Cursed-Survival-Rarity-Outline-Fix/">
+<meta name="theme-color" content="#8b5cf6">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the Kronos Plus page's single dark column: brand header, a highlight panel, feature columns, screenshots, get started. */
+:root {
+  color-scheme: dark;
+  --bg: #0d0f13;
+  --panel: #171a21;
+  --line: #262b35;
+  --text: #e9ecf1;
+  --muted: #9aa3b2;
+  --accent: #8b5cf6;
+  --accent-hi: #93c5fd;
+  --accent-rgb: 139, 92, 246;
+  --info: #6aa8ff;
+  --ok: #3ccf7f;
+  --display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 48px 40px;
+}
+main { max-width: 860px; margin: 0 auto; display: grid; gap: 40px; }
+header { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+header img.logo { width: 72px; height: 72px; flex: none; }
+h1 { font: 700 44px/1 var(--display); margin: 0; letter-spacing: .5px; text-wrap: balance; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h1 .hl { color: var(--accent-hi); }
+h1 .ver { font: 600 14px var(--mono); color: var(--accent-hi); border: 1px solid rgba(var(--accent-rgb), .45); background: rgba(var(--accent-rgb), .1); padding: 3px 10px; border-radius: 999px; letter-spacing: 0; }
+.tag { margin: 6px 0 0; color: var(--muted); max-width: 62ch; }
+.promise { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.promise span { font: 500 12px var(--mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.promise span::before { content: "\2713  "; color: var(--ok); }
+.cta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-top: 16px; }
+a.get { font: 600 14px var(--body); color: #0b0710; text-decoration: none; background: linear-gradient(135deg, var(--accent-hi), var(--accent)); border-radius: 10px; padding: 10px 16px; }
+a.src { font: 500 14px var(--body); color: var(--text); text-decoration: none; border: 1px solid var(--line); border-radius: 10px; padding: 9px 15px; }
+a.src:hover { border-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
+.get-note { color: var(--muted); font-size: 13px; }
+.hero { margin: 0; }
+.hero img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; display: block; border-radius: 14px; border: 1px solid var(--line); }
+.new { border: 1px solid rgba(var(--accent-rgb), .4); border-radius: 14px; padding: 20px 22px; background: linear-gradient(135deg, rgba(var(--accent-rgb), .10), rgba(var(--accent-rgb), .03) 60%), var(--panel); }
+.new .feats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); column-gap: 32px; }
+.new .feats li { border-left-color: var(--accent); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px; }
+.cols > section { min-width: 0; }
+h2 { font: 600 13px var(--display); text-transform: uppercase; letter-spacing: 2px; color: var(--accent-hi); margin: 0 0 4px; }
+.where { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+ul.feats { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.feats li { display: grid; gap: 2px; padding-left: 14px; border-left: 2px solid var(--line); min-width: 0; }
+.feats b { font-weight: 600; }
+.feats span { color: var(--muted); font-size: 14px; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 14px; }
+.shots figure { margin: 0; display: grid; gap: 6px; }
+.shots img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 10px; border: 1px solid var(--line); }
+.shots figcaption { color: var(--muted); font-size: 13px; }
+.start { display: grid; gap: 10px; }
+.start ol, .start ul { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+.start b { color: var(--text); font-weight: 600; }
+code { font: 13px var(--mono); color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; overflow-wrap: anywhere; }
+footer { border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer a { color: var(--muted); }
+footer a:hover { color: var(--text); }
+@media (max-width: 560px) {
+  body { padding-block: 28px 32px; }
+  h1 { font-size: 32px; }
+  header img.logo { width: 56px; height: 56px; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img class="logo" src="logo.svg" alt="">
+    <div style="min-width:0;flex:1">
+      <h1><span>Cursed Survival <span class="hl">Rarity Outline Fix</span></span><span class="ver">1.0</span></h1>
+      <p class="tag">Dropped loot in Cursed Survival shows its rarity colour again, instead of a grey outline. A Black Ops 7 Zombies mod made for Kronos.</p>
+      <div class="promise"><span>Cursed Survival only</span><span>Any map, any relic</span><span>No game files replaced</span><span>Free</span></div>
+      <div class="cta">
+        <a class="get" href="https://github.com/DellxCell/Cursed-Survival-Rarity-Outline-Fix/releases/latest">Download</a>
+        <a class="src" href="https://github.com/DellxCell/Cursed-Survival-Rarity-Outline-Fix">Source code</a>
+        <span class="get-note">Not on the Kronos Workshop: install it by hand in a minute.</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="new">
+    <h2>What it fixes</h2>
+    <p class="where">Grey outlines on every drop in Cursed Survival</p>
+    <ul class="feats">
+      <li><b>Rarity colours back</b><span>Green, blue, purple, orange and so on, the same as in regular Survival.</span></li>
+      <li><b>On every drop</b><span>Weapons, salvage, equipment and rewards all show their real rarity.</span></li>
+    </ul>
+  </section>
+
+  <div class="cols">
+  <section>
+    <h2>How it works</h2>
+    <p class="where">One setting, one mode</p>
+    <ul class="feats">
+      <li><b>Same loot, missing colour</b><span>Cursed Survival drops carry the same rarities as Survival; only the outline colour is missing.</span></li>
+      <li><b>One game setting</b><span>Kronos turns it on for Survival but leaves it off for Cursed Survival. This mod turns it on in Cursed Survival matches.</span></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Safe to keep on</h2>
+    <p class="where">It stays out of the way</p>
+    <ul class="feats">
+      <li><b>Cursed Survival only</b><span>Other modes are untouched.</span></li>
+      <li><b>Any map and relic</b><span>Including Mister Peeks Mayhem.</span></li>
+      <li><b>Nothing replaced</b><span>No Kronos or game files are replaced, so nothing shows as Outdated in the launcher.</span></li>
+    </ul>
+  </section>
+  </div>
+
+  <section class="start">
+    <h2>Get started</h2>
+    <ol>
+      <li>Set up <b>Kronos</b> and run its launcher at least once.</li>
+      <li>Download <b>Cursed-Survival-Rarity-Outline-Fix-1.0.zip</b> from the latest release.</li>
+      <li>Close <b>Black Ops 7</b> and <b>KronosLauncher</b>, then extract the zip into <code>C:\Kronos\cod25\kronos\mods</code>. You should end up with <code>mods\cursed_rarity_outline_fix\mod.json</code>.</li>
+      <li>Launch through Kronos and play Cursed Survival.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Black Ops 7 + Kronos</span>
+    <span>Made by <b>DellxCell</b> (The Hamster)</span>
+    <span><a href="https://github.com/DellxCell/Cursed-Survival-Rarity-Outline-Fix">Source code and releases on GitHub</a></span>
+    <span>Fan-made. Not affiliated with the Kronos team or Activision.</span>
+  </footer>
+</main>
+</body>
+</html>

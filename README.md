@@ -6,6 +6,8 @@ Dropped loot in **Cursed Survival** shows its rarity colour again, a mod for **B
 
 In Cursed Survival, dropped loot shows a **grey outline** no matter how rare it is: weapons, salvage, equipment and rewards all look Common. This mod brings back the normal rarity colours (green, blue, purple, orange and so on), the same as in regular Survival.
 
+**Website:** https://dellxcell.github.io/Cursed-Survival-Rarity-Outline-Fix/
+
 ## Download
 
 Get the zip from **[Releases](https://github.com/DellxCell/Cursed-Survival-Rarity-Outline-Fix/releases)** and follow [Install](#install) below.
